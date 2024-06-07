@@ -15,7 +15,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/twrp_a13ve.mk
+	$(LOCAL_DIR)/lineage_a13ve.mk
 
 COMMON_LUNCH_CHOICES := \
-			twrp_a13ve-eng
+			lineage_a13ve-eng

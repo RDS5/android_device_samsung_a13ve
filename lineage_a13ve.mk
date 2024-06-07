@@ -22,7 +22,7 @@ PRODUCT_RELEASE_NAME := a13ve
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
-# Inherit some common TWRP stuff.
+# Inherit some common lineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common.mk)
 
 # Inherit device configuration
