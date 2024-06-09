@@ -1,32 +1,63 @@
 #
-# Copyright (C) 2020 The Android Open Source Project
+# Copyright (C) 2024 The LineageOS Project
 #
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
+# SPDX-License-Identifier: Apache-2.0
 #
 
-# Enable project quotas and casefolding for emulated storage without sdcardfs
-$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
+# Enable updating of APEXes
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# VNDK
-PRODUCT_TARGET_VNDK_VERSION := 32
+# Dalvik VM Configuration
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
-# API
-PRODUCT_SHIPPING_API_LEVEL := 31
+# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
-# Dynamic partitions
+# Binder
+PRODUCT_PACKAGES += \
+    android.hidl.allocator@1.0.vendor \
+    android.hidl.memory@1.0.vendor
+
+PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder.vendor \
+    libhwbinder
+
+# Display
+TARGET_SCREEN_DENSITY := 320
+TARGET_SCREEN_HEIGHT := 2400
+TARGET_SCREEN_WIDTH := 1080
+
+PRODUCT_PACKAGES += \
+    disable_configstore
+
+PRODUCT_PACKAGES += \
+    create_pl_dev \
+    create_pl_dev.recovery
+
+# Dynamic Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
-# fastbootd
 PRODUCT_PACKAGES += \
-    android.hardware.fastboot@1.0-impl-mock \
     fastbootd
+
+# Init
+PRODUCT_PACKAGES += \
+    fstab.mt6768 \
+    fstab.mt6768.ramdisk \
+    init.recovery.mt6768.rc
+
+# Overlays
+PRODUCT_ENFORCE_RRO_TARGETS := *
+
+# Shipping API level
+PRODUCT_SHIPPING_API_LEVEL := 31
+
+# Soong namespaces
+PRODUCT_SOONG_NAMESPACES += \
+    $(LOCAL_PATH) \
+    hardware/mediatek
+
+# Inherit the proprietary files
+$(call inherit-product, vendor/samsung/a13ve/a13ve-vendor.mk)
