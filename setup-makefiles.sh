@@ -8,8 +8,8 @@
 
 set -e
 
-DEVICE=a13ve
-VENDOR=samsung
+export DEVICE=a13ve
+export VENDOR=samsung
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
