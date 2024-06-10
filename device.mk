@@ -58,6 +58,13 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek
+# Sensors
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.0-multihal \
+    vendor.samsung.hardware.biometrics.fingerprint@3.0-service \
+    vendor.samsung.hardware.thermal@1.0-manifest \
+    android.hardware.health@2.1-samsung \
+
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/samsung/a13ve/a13ve-vendor.mk)
