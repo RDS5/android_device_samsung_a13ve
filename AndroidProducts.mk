@@ -8,6 +8,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_a13ve.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_a13ve-user \
-    lineage_a13ve-userdebug \
-    lineage_a13ve-eng
+    lineage_a13ve-ap1a-user \
+    lineage_a13ve-ap1a-userdebug \
+    lineage_a13ve-ap1a-eng
