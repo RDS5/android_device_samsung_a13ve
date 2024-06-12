@@ -64,6 +64,10 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors-service.samsung-multihal \
     android.frameworks.sensorservice@1.0.vendor \
     android.hardware.sensors@1.0.vendor
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@2.0.vendor \
+    android.hardware.sensors@2.0-ScopedWakelock.vendor \
+    android.hardware.sensors@2.1.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
