@@ -58,12 +58,15 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek
+
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@2.0-multihal \
-    vendor.samsung.hardware.biometrics.fingerprint@3.0-service \
-    vendor.samsung.hardware.thermal@1.0-manifest \
-    android.hardware.health@2.1-samsung \
+    android.hardware.sensors-service.samsung-multihal \
+    android.frameworks.sensorservice@1.0.vendor \
+    android.hardware.sensors@1.0.vendor
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 
 # Inherit the proprietary files
