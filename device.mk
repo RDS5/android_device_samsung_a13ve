@@ -59,6 +59,7 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek
+    hardware/samsung
 
 # Sensors
 PRODUCT_PACKAGES += \
